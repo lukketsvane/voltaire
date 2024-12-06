@@ -1,0 +1,45 @@
+/workspaces/voltaire/
+├─] .env (ignored)
+├── .gitignore
+├─] .next/ (ignored)
+├─] .turbo/ (ignored)
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── app/
+│   ├── admin/
+│   │   └── page.tsx
+│   ├── api/
+│   │   └── posts/
+│   │       └── route.ts
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── posts/
+│       └── [id]/
+│           └── page.tsx
+├── biome.json
+├── components/
+│   ├── editor/
+│   │   ├── TailwindEditor.tsx
+│   │   └── advanced-editor.tsx
+│   └── ui/
+│       ├── button.tsx
+│       ├── input.tsx
+│       └── textarea.tsx
+├── lib/
+│   ├── prisma.ts
+│   └── utils.ts
+├─] next-env.d.ts (ignored)
+├─] node_modules/ (ignored)
+├─] package-lock.json (ignored)
+├── package.json
+├── packages/
+├── prettier.config.js
+├── prisma/
+│   └── schema.prisma
+├── styles/
+│   ├── globals.css
+│   └── prosemirror.css
+├── tsconfig.json
+└── turbo.json

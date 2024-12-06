@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import Editor from "@/components/editor/advanced-editor";
-import { Button } from "@/components/ui/button";
+import { prisma } from "../../../lib/prisma";
+import Editor from "../../../components/editor/advanced-editor";
+import { Button } from "../../../components/ui/button";
 
 export default async function PostPage({ params }: { params: { id: string } }) {
   const post = await prisma.post.findUnique({

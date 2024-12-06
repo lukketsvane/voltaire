@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { Button } from "@/components/ui/button";
+import { prisma } from "../lib/prisma";
+import { Button } from "../components/ui/button";
 
 export default async function Home() {
   const posts = await prisma.post.findMany({
     orderBy: { createdAt: 'desc' },
-    select: { id: true, title: true, excerpt: true, createdAt: true }
+    select: { id: true, title: true, excerpt: true, content: true, createdAt: true }
   });
 
   return (
@@ -22,8 +22,15 @@ export default async function Home() {
             <article key={post.id} className="border p-6 rounded-lg">
               <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
               <p className="text-muted-foreground mb-4">{post.excerpt}</p>
+              <div className="prose prose-sm max-w-none mb-4">
+                {post.content.length > 200 
+                  ? `${post.content.substring(0, 200)}...` 
+                  : post.content}
+              </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">{new Date(post.createdAt).toLocaleDateString()}</span>
+                <span className="text-sm text-muted-foreground">
+                  {new Date(post.createdAt).toLocaleDateString()}
+                </span>
                 <Link href={`/posts/${post.id}`} passHref>
                   <Button variant="link">Read more</Button>
                 </Link>
@@ -35,3 +42,4 @@ export default async function Home() {
     </main>
   );
 }
+
